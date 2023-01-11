@@ -1,3 +1,4 @@
+from selene import command
 from selene.support.conditions import be, have
 from selene.support.shared import browser
 
@@ -31,6 +32,7 @@ def subject(texts):
 
 
 def set_hobbies(texts):
+    browser.element('[for="hobbies-checkbox-3"]').perform(command.js.scroll_into_view)
     checkbox.select_hobbies(browser.all('[for^=hobbies-checkbox]'), texts)
 
 
