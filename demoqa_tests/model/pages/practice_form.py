@@ -8,6 +8,9 @@ from demoqa_tests.utils import file_path
 
 def open_page():
     browser.open('/automation-practice-form')
+    ads = browser.all('[id^=google_ads_][id$=container__]')
+    if ads.wait.until(have.size_greater_than_or_equal(3)):
+        ads.perform(command.js.remove)
 
 
 def submit_data(first_name, last_name, email, user_number, current_address):
